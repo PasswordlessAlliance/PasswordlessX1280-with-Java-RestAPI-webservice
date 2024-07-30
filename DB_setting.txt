@@ -1,0 +1,20 @@
+# mysql -uroot
+
+create database passwordless;
+CREATE USER 'pwless'@'%' IDENTIFIED BY 'qwer!@#$';
+CREATE USER 'pwless'@'localhost' IDENTIFIED BY 'qwer!@#$';
+
+GRANT ALL PRIVILEGES ON passwordless.* TO 'pwless'@'%';
+GRANT ALL PRIVILEGES ON passwordless.* TO 'pwless'@'localhost';
+
+flush privileges;
+
+USE passwordless;
+
+CREATE TABLE userinfo (
+	`id` varchar(1000) NOT NULL,
+	`pw` VARCHAR(1000) NOT NULL,
+	`email` VARCHAR(1000) NOT NULL,
+	`regdate` datetime NULL default NOW(),
+	PRIMARY KEY (`id` ASC)
+);

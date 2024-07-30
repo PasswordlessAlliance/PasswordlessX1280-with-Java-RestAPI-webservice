@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.pwl.mapper.Login.LoginMapper">
+
+	<!-- 로그인 체크 -->
+	<select id="checkPassword" parameterType="UserInfo" resultType="UserInfo">
+		SELECT id, pw, email, regdate
+		FROM userinfo
+		WHERE id = '${id}' AND pw = password('${pw}')
+	</select>
+
+	<!-- 회원정보 검색 -->
+	<select id="getUserInfo" parameterType="UserInfo" resultType="UserInfo">
+		SELECT id, pw, email, regdate
+		FROM userinfo
+		WHERE id = '${id}'
+	</select>
+	
+	<!-- 패스워드 업데이트 -->
+	<update id="updatePassword">
+		UPDATE userinfo
+		SET pw=password('${pw}')
+		WHERE id = '${id}'
+	</update>
+	
+	<!-- 회원가입 -->
+	<insert id="createUserInfo">
+		INSERT INTO userinfo (id, pw, email)
+		VALUES('${id}', password('${pw}'), '${email}')
+	</insert>
+	
+	<!-- 회원탈퇴 -->
+	<delete id="withdrawUserInfo">
+		DELETE FROM userinfo
+		WHERE id = '${id}'
+	</delete>
+
+	<!-- 비밀번호 변경 -->
+	<update id="changepw">
+		UPDATE userinfo
+		SET pw = password('${pw}')
+		WHERE id = '${id}'
+	</update>
+</mapper>
