@@ -43,8 +43,8 @@ if(lang.toLowerCase().equals("ko"))
 <script type="text/javascript">
 str_login = "<spring:message code="user.login" />";									// 로그인
 str_cancel = "<spring:message code="user.cancel" />";								// 취소
-str_title_password = "<spring:message code="title.login.passwordless" />";			// 타이틀 - password
-str_title_passwordless = "<spring:message code="title.login.password" />";			// 타이틀 - passwordless
+str_title_password = "<spring:message code="title.login.password" />";				// 타이틀 - password
+str_title_passwordless = "<spring:message code="title.login.passwordless" />";		// 타이틀 - passwordless
 str_passwordress_notreg = "<spring:message code="text.passwordless.notreg" />";		// Passwordless 등록이 필요합니다.
 str_passwordless_regunreg = "<spring:message code="user.passwordless.regunreg" />";	// passwordless 등록/해지
 str_input_id = "<spring:message code="user.input.id" />";							// ID를 입력하세요.
