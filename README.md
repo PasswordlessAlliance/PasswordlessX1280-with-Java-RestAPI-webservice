@@ -1,4 +1,4 @@
-# Passwordless X1280
+# Passwordless X1280 (Rest API version)
 
 ## Introduction to Passwordless X1280
 Passwordless X1280 is a passwordless software provided free of charge by the Passwordless Alliance to B2C online services worldwide. Developed based on the international standard ITU X.1280, Passwordless X1280 consists of server software for online service providers and a mobile app for online service users.
