@@ -13,6 +13,11 @@ Moreover, it enables out-of-band biometric authentication for all B2C online ser
 + You can download the Passwordless X1280 app by scanning the QR code image below with your mobile device's camera.
   ![image](https://github.com/user-attachments/assets/0b144f67-0257-4b24-bc09-1d1dd54e1f52)
 
+## Passwordless Alliance site (It will be referred to as Members site from now on)
+To proceed with the process below, you must be registered on the Members site and the service of the application to which you want to apply Passwordless X1280 must be registered. If you are not registered yet, please register and apply through the link below and proceed again.
+
+[https://members.passwordlessalliance.org/](https://members.passwordlessalliance.org/)
+
 ## Project running environment
 * Windows 11 Pro
 * MariaDB 10.6.5
@@ -41,6 +46,59 @@ Moreover, it enables out-of-band biometric authentication for all B2C online ser
    --memory=1g : Uses 1GB of memory
    --memory-swap=2g : Swap memory is set to twice the memory
    ```
+
+   After installing the passwordless X1280 server with docker, connect to it with a web browser.
+   
+   You must connect to https and port 8143, and the firewall for that port must be open.
+   
+   ![image](https://github.com/user-attachments/assets/3bc27928-ee44-4449-8d77-e058d60cc3b4)
+
+   After that, click on "Advanced" and "Proceed to your-passwordlessX1280-domain (unsafe)".
+   ![image](https://github.com/user-attachments/assets/0d8cb79d-f605-45e2-916f-1f37f1961de4)
+
+
+   If the passwordless X1280 server is properly installed, you will see a screen like this:
+   ![image](https://github.com/user-attachments/assets/2d05f687-5243-4749-b444-b016e5be8db6)
+
+
+   Click on "Download license key file" in the service information registered on the Members site and download the setting.ap file.
+   ![image](https://github.com/user-attachments/assets/afb19346-71a7-4144-87ad-814eae0bdf51)
+
+
+   After uploading the setting.ap file, if the screen below appears, the installation of the Passwordless X1280 server is complete.
+   ![image](https://github.com/user-attachments/assets/913874f3-9b5a-48d5-b59c-88f6ca5ef7f4)
+
+
+## Preparing to set up the application server
+  Log in to the Passwordless X1280 authentication server. (Default log ID/Password is admin/admin)
+
+  Click the Service server menu.
+  
+  ![image](https://github.com/user-attachments/assets/572a14cf-c125-4003-967b-1e818464d17e)
+  ① Service server
+  
+  ② If you modified the service information on the Members site, download the setting.ap file again and upload it here.
+  
+  ③ Generate a new server key value. When you click, a pop-up window will appear. Copy the value and keep it safe.
+    ![image](https://github.com/user-attachments/assets/b5fc9dc2-3cea-4228-8d76-d57ecbc47fa2)
+  
+    * Caution
+       The server key value changes every time you click.
+       The pop-up window appears only once when you click on it.
+       The server key value can only be viewed in the pop-up window and cannot be obtained from anywhere else.
+  
+  ④ Server ID - This value does not change.
+
+
+## Applying Passwordless X1280 server ID and server key to application server
+  Modify the project's /src/main/resources/properties/config.properties file
+  ![image](https://github.com/user-attachments/assets/6dbb0ae3-c100-4b82-94aa-be2a473cd61c)
+
+  ① Change server ID.
+  
+  ② Change server key.
+  
+  ③ Change application domain.
 
 
 ## How to use
