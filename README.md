@@ -20,6 +20,29 @@ Moreover, it enables out-of-band biometric authentication for all B2C online ser
 * OpenJDK 11.0.15
 * OpenJDK Runtime Environment 18.9
 
+## Installing Passwordless X1280 Servers with Docker
+   [https://hub.docker.com/r/dualauth/passwordless-x1280-single](https://hub.docker.com/r/dualauth/passwordless-x1280-single)
+
+   If you install it additionally to an existing application server, you can limit Docker's resource usage by adding the following options:
+
+   ```
+   --cpus=1 \
+   --cpuset-cpus="0" \
+   --cpu-shares=1024 \
+   --memory=1g \
+   --memory-swap=2g \
+   ```
+
+   ```
+   * Option description
+   --cpus=1 : Number of cpu cores
+   --cpuset-cpus=”0” : Docker occupies and uses the first CPU
+   --cpu-shares=1024 : Uses 100% of CPU (ex:512 → uses 50% of CPU)
+   --memory=1g : Uses 1GB of memory
+   --memory-swap=2g : Swap memory is set to twice the memory
+   ```
+
+
 ## How to use
 + Project source
   + Maven build in eclipse
