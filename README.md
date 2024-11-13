@@ -26,6 +26,9 @@ To proceed with the process below, you must be registered on the Members site an
 * OpenJDK Runtime Environment 18.9
 
 ## Installing Passwordless X1280 Servers with Docker
+
+   Please refer to the link below for how to install the Passwordless X1280 docker integrated version.
+
    [https://hub.docker.com/r/dualauth/passwordless-x1280-single](https://hub.docker.com/r/dualauth/passwordless-x1280-single)
 
    If you install it additionally to an existing application server, you can limit Docker's resource usage by adding the following options:
@@ -54,18 +57,22 @@ To proceed with the process below, you must be registered on the Members site an
    ![image](https://github.com/user-attachments/assets/3bc27928-ee44-4449-8d77-e058d60cc3b4)
 
    After that, click on "Advanced" and "Proceed to your-passwordlessX1280-domain (unsafe)".
+   
    ![image](https://github.com/user-attachments/assets/0d8cb79d-f605-45e2-916f-1f37f1961de4)
 
 
    If the passwordless X1280 server is properly installed, you will see a screen like this:
+   
    ![image](https://github.com/user-attachments/assets/2d05f687-5243-4749-b444-b016e5be8db6)
 
 
    Click on "Download license key file" in the service information registered on the Members site and download the setting.ap file.
+   
    ![image](https://github.com/user-attachments/assets/afb19346-71a7-4144-87ad-814eae0bdf51)
 
 
    After uploading the setting.ap file, if the screen below appears, the installation of the Passwordless X1280 server is complete.
+   
    ![image](https://github.com/user-attachments/assets/913874f3-9b5a-48d5-b59c-88f6ca5ef7f4)
 
 
@@ -75,11 +82,13 @@ To proceed with the process below, you must be registered on the Members site an
   Click the Service server menu.
   
   ![image](https://github.com/user-attachments/assets/572a14cf-c125-4003-967b-1e818464d17e)
+  
   ① Service server
   
   ② If you modified the service information on the Members site, download the setting.ap file again and upload it here.
   
   ③ Generate a new server key value. When you click, a pop-up window will appear. Copy the value and keep it safe.
+  
     ![image](https://github.com/user-attachments/assets/b5fc9dc2-3cea-4228-8d76-d57ecbc47fa2)
   
     * Caution
@@ -92,6 +101,7 @@ To proceed with the process below, you must be registered on the Members site an
 
 ## Applying Passwordless X1280 server ID and server key to application server
   Modify the project's /src/main/resources/properties/config.properties file
+  
   ![image](https://github.com/user-attachments/assets/6dbb0ae3-c100-4b82-94aa-be2a473cd61c)
 
   ① Change server ID.
@@ -152,6 +162,7 @@ To proceed with the process below, you must be registered on the Members site an
 
 
 ## Who we are
+
 ![image](https://github.com/user-attachments/assets/78ab716f-fb04-44fc-a584-5d060aff6d8c)
 
 [https://www.passwordlessalliance.org](https://www.passwordlessalliance.org/)
