@@ -88,7 +88,6 @@ To proceed with the process below, you must be registered on the Members site an
   ② If you modified the service information on the Members site, download the setting.ap file again and upload it here.
   
   ③ Generate a new server key value. When you click, a pop-up window will appear. Copy the value and keep it safe.
-  
     ![image](https://github.com/user-attachments/assets/b5fc9dc2-3cea-4228-8d76-d57ecbc47fa2)
   
     * Caution
