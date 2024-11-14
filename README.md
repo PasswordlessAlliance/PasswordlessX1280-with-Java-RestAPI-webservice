@@ -15,7 +15,7 @@ Moreover, it enables out-of-band biometric authentication for all B2C online ser
 
 ## Passwordless Alliance Members site 
 Passwordless Alliance Members site will be referred to as Members site from now on.
-To proceed with the process below, you have to sign up the Members site and the service of the web application to which you want to apply Passwordless X1280 must be registered. If you are not registered yet, please register and apply through the link below and proceed again.
+To proceed with the process below, you have to sign up the Members site and the service of the web application to which you want to apply Passwordless X1280 must be registered.
 
 [https://members.passwordlessalliance.org](https://members.passwordlessalliance.org)
 
