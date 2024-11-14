@@ -60,9 +60,16 @@ To proceed with the process below, you must be registered on the Members site an
 
    Click on "Download license key file" in the service information registered on the Members site and download the setting.ap file.
 
+   [https://members.passwordlessalliance.org](https://members.passwordlessalliance.org)
+
    ![image](https://github.com/user-attachments/assets/955c0286-0f8a-4cc6-a7e8-0d56e4564e4f)
 
    ![image](https://github.com/user-attachments/assets/23c024ac-ba41-4dc6-8ae2-f9341bf27cf5)
+
+
+   Click "Choose File" button and upload the setting.ap file
+   
+   ![image](https://github.com/user-attachments/assets/285f8e7e-0450-4eae-a77b-335d72f0fe9c)
 
 
    After uploading the setting.ap file, if the screen below appears, the installation of the Passwordless X1280 server is complete.
@@ -90,24 +97,23 @@ To proceed with the process below, you must be registered on the Members site an
        The server key value can only be viewed in the pop-up window and cannot be obtained from anywhere else.
 
 
+## Applying Passwordless X1280 server ID and server key to application server
+  Modify the project's /src/main/resources/properties/config.properties file
+  
+  ![image](https://github.com/user-attachments/assets/6dbb0ae3-c100-4b82-94aa-be2a473cd61c)
+
+  ① Apply the server ID value copied to notepad.
+  
+  ② Apply the server key value copied to notepad.
+  
+  ③ Change to your passwordless X1280 domain.
+
 
 ## Apply the members site changes
   If you modified the service information on the Members site, download new setting.ap file and upload it here.
 
   ![image](https://github.com/user-attachments/assets/afbc92e8-0155-41c1-9e9d-d70b1df1fdc7)
 
-
-
-## Applying Passwordless X1280 server ID and server key to application server
-  Modify the project's /src/main/resources/properties/config.properties file
-  
-  ![image](https://github.com/user-attachments/assets/6dbb0ae3-c100-4b82-94aa-be2a473cd61c)
-
-  ① Change server ID.
-  
-  ② Change server key.
-  
-  ③ Change application domain.
 
 
 ## How to use
