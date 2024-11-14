@@ -13,7 +13,8 @@ Moreover, it enables out-of-band biometric authentication for all B2C online ser
 + You can download the Passwordless X1280 app by scanning the QR code image below with your mobile device's camera.
   ![image](https://github.com/user-attachments/assets/0b144f67-0257-4b24-bc09-1d1dd54e1f52)
 
-## Passwordless Alliance site (It will be referred to as Members site from now on)
+## Passwordless Alliance Members site 
+It will be referred to as Members site from now on.
 To proceed with the process below, you must be registered on the Members site and the service of the application to which you want to apply Passwordless X1280 must be registered. If you are not registered yet, please register and apply through the link below and proceed again.
 
 [https://members.passwordlessalliance.org/](https://members.passwordlessalliance.org/)
@@ -25,7 +26,7 @@ To proceed with the process below, you must be registered on the Members site an
 * OpenJDK 11.0.15
 * OpenJDK Runtime Environment 18.9
 
-## Installing Passwordless X1280 Servers with Docker
+## Installing Passwordless X1280 servers with docker
 
    Please refer to the link below for how to install the Passwordless X1280 docker integrated version.
 
