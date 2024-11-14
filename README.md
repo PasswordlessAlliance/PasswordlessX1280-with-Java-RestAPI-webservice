@@ -15,7 +15,7 @@ Moreover, it enables out-of-band biometric authentication for all B2C online ser
 
 ## Passwordless Alliance Members site 
 Passwordless Alliance Members site will be referred to as Members site from now on.
-To proceed with the process below, you must be registered on the Members site and the service of the application to which you want to apply Passwordless X1280 must be registered. If you are not registered yet, please register and apply through the link below and proceed again.
+To proceed with the process below, you must be registered on the Members site and the service of the web application to which you want to apply Passwordless X1280 must be registered. If you are not registered yet, please register and apply through the link below and proceed again.
 
 [https://members.passwordlessalliance.org](https://members.passwordlessalliance.org)
 
@@ -77,7 +77,7 @@ To proceed with the process below, you must be registered on the Members site an
    ![image](https://github.com/user-attachments/assets/913874f3-9b5a-48d5-b59c-88f6ca5ef7f4)
 
 
-## Preparing to set up the application server
+## Preparing to set up the web application server
   Log in to the Passwordless X1280 authentication server. (Default login ID/Password is admin/admin)
 
   Click the Service server menu.
@@ -97,7 +97,7 @@ To proceed with the process below, you must be registered on the Members site an
        The server key value can only be viewed in the pop-up window and cannot be obtained from anywhere else.
 
 
-## Applying Passwordless X1280 server ID and server key to application server
+## Applying Passwordless X1280 server ID and server key to web application server
   Modify the project's /src/main/resources/properties/config.properties file
   
   ![image](https://github.com/user-attachments/assets/6dbb0ae3-c100-4b82-94aa-be2a473cd61c)
