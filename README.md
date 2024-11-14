@@ -58,9 +58,13 @@ To proceed with the process below, you have to sign up the Members site and the 
    ![image](https://github.com/user-attachments/assets/2d05f687-5243-4749-b444-b016e5be8db6)
 
 
-   Click on "Download license key file" in the service information registered on the Members site and download the setting.ap file.
+   Go to the Members site to download the file containing information about the authentication server to upload.
 
    [https://members.passwordlessalliance.org](https://members.passwordlessalliance.org)
+
+   Log in to the Members site and view information about your service in the service management menu.
+   
+   Click on "Download license key file" in the service information registered on the Members site and download the setting.ap file.
 
    ![image](https://github.com/user-attachments/assets/955c0286-0f8a-4cc6-a7e8-0d56e4564e4f)
 
@@ -106,11 +110,13 @@ To proceed with the process below, you have to sign up the Members site and the 
   
   ② Apply the server key value copied to notepad.
   
-  ③ Change to your passwordless X1280 domain.
+  ③ Change to your-passwordless-X1280-domain.
 
 
 ## Apply the members site changes
-  If you modified the service information on the Members site, download new setting.ap file and upload it here.
+  If you modified the service information on the Members site, the authentication server may not function properly.
+  
+  In this case, download new setting.ap file from the Members site and upload it here.
 
   ![image](https://github.com/user-attachments/assets/afbc92e8-0155-41c1-9e9d-d70b1df1fdc7)
 
