@@ -17,7 +17,7 @@ Moreover, it enables out-of-band biometric authentication for all B2C online ser
 It will be referred to as Members site from now on.
 To proceed with the process below, you must be registered on the Members site and the service of the application to which you want to apply Passwordless X1280 must be registered. If you are not registered yet, please register and apply through the link below and proceed again.
 
-[https://members.passwordlessalliance.org/](https://members.passwordlessalliance.org/)
+[https://members.passwordlessalliance.org](https://members.passwordlessalliance.org)
 
 ## Project running environment
 * Windows 11 Pro
@@ -28,28 +28,16 @@ To proceed with the process below, you must be registered on the Members site an
 
 ## Installing Passwordless X1280 servers with docker
 
+   To follow the steps below, you will need to have the Passwordless X1280 server installed via docker.
+   
    Please refer to the link below for how to install the Passwordless X1280 docker integrated version.
+
+   _To use the docker integrated version, you must allocate at least 1 CPU core and 1 GB of RAM to the Passwordless X1280 server._
 
    [https://hub.docker.com/r/dualauth/passwordless-x1280-single](https://hub.docker.com/r/dualauth/passwordless-x1280-single)
 
-   If you install it additionally to an existing application server, you can limit Docker's resource usage by adding the following options:
 
-   ```
-   --cpus=1 \
-   --cpuset-cpus="0" \
-   --cpu-shares=1024 \
-   --memory=1g \
-   --memory-swap=2g \
-   ```
-
-   ```
-   * Option description
-   --cpus=1 : Number of cpu cores
-   --cpuset-cpus=”0” : Docker occupies and uses the first CPU
-   --cpu-shares=1024 : Uses 100% of CPU (ex:512 → uses 50% of CPU)
-   --memory=1g : Uses 1GB of memory
-   --memory-swap=2g : Swap memory is set to twice the memory
-   ```
+## Setting Passwordless X1280 authentication server
 
    After installing the passwordless X1280 server with docker, connect to it with a web browser.
    
@@ -62,14 +50,19 @@ To proceed with the process below, you must be registered on the Members site an
    ![image](https://github.com/user-attachments/assets/0d8cb79d-f605-45e2-916f-1f37f1961de4)
 
 
+   **If you set up a formal certificate, you can skip the steps above and see the screen below.**
+
+
    If the passwordless X1280 server is properly installed, you will see a screen like this:
    
    ![image](https://github.com/user-attachments/assets/2d05f687-5243-4749-b444-b016e5be8db6)
 
 
    Click on "Download license key file" in the service information registered on the Members site and download the setting.ap file.
-   
-   ![image](https://github.com/user-attachments/assets/afb19346-71a7-4144-87ad-814eae0bdf51)
+
+   ![image](https://github.com/user-attachments/assets/955c0286-0f8a-4cc6-a7e8-0d56e4564e4f)
+
+   ![image](https://github.com/user-attachments/assets/23c024ac-ba41-4dc6-8ae2-f9341bf27cf5)
 
 
    After uploading the setting.ap file, if the screen below appears, the installation of the Passwordless X1280 server is complete.
@@ -82,21 +75,27 @@ To proceed with the process below, you must be registered on the Members site an
 
   Click the Service server menu.
   
-  ![image](https://github.com/user-attachments/assets/572a14cf-c125-4003-967b-1e818464d17e)
+  ![image](https://github.com/user-attachments/assets/926d11e0-a7bc-4b94-b899-3c3ce935995e)
   
-  ① Service server
+  ① Server ID - Copy this value to notepad
   
-  ② If you modified the service information on the Members site, download the setting.ap file again and upload it here.
+  ② Issue Server Key - When you click this button, a pop-up window will appear. Copy the values ​​displayed there into notepad.
   
-  ③ Generate a new server key value. When you click, a pop-up window will appear. Copy the value and keep it safe.
-    ![image](https://github.com/user-attachments/assets/b5fc9dc2-3cea-4228-8d76-d57ecbc47fa2)
+  ![image](https://github.com/user-attachments/assets/b5fc9dc2-3cea-4228-8d76-d57ecbc47fa2)
+
   
     * Caution
        The server key value changes every time you click.
        The pop-up window appears only once when you click on it.
        The server key value can only be viewed in the pop-up window and cannot be obtained from anywhere else.
-  
-  ④ Server ID - This value does not change.
+
+
+
+## Apply the members site changes
+  If you modified the service information on the Members site, download new setting.ap file and upload it here.
+
+  ![image](https://github.com/user-attachments/assets/afbc92e8-0155-41c1-9e9d-d70b1df1fdc7)
+
 
 
 ## Applying Passwordless X1280 server ID and server key to application server
