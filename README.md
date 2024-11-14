@@ -78,7 +78,7 @@ To proceed with the process below, you must be registered on the Members site an
 
 
 ## Preparing to set up the application server
-  Log in to the Passwordless X1280 authentication server. (Default log ID/Password is admin/admin)
+  Log in to the Passwordless X1280 authentication server. (Default login ID/Password is admin/admin)
 
   Click the Service server menu.
   
