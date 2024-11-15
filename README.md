@@ -114,9 +114,9 @@ To proceed with the process below, you have to sign up the Members site and the 
 
 
 ## Apply the members site changes
-  If you modified the service information on the Members site, the authentication server may not function properly.
+  If you modified the service information on the Members site, the authentication server may not operate properly.
   
-  In this case, download new setting.ap file from the Members site and upload it here.
+  In this case, download a new setting.ap file from the Members site and upload it here.
 
   ![image](https://github.com/user-attachments/assets/afbc92e8-0155-41c1-9e9d-d70b1df1fdc7)
 
