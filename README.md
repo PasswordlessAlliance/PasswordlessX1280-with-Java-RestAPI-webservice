@@ -48,7 +48,7 @@ To proceed with the process below, you have to sign up the Members site and the 
    ![image](https://github.com/user-attachments/assets/0d8cb79d-f605-45e2-916f-1f37f1961de4)
 
 
-   **If you set up a formal certificate, you can skip the steps above and see the screen below.**
+   **If you set up a formal SSL certificate, you can skip the steps above and see the screen below.**
 
 
    If the passwordless X1280 server is properly installed, you will see a screen like this:
