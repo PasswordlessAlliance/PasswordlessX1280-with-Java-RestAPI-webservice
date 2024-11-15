@@ -30,9 +30,7 @@ To proceed with the process below, you have to sign up the Members site and the 
 
    To follow the steps below, you will need to have the Passwordless X1280 server installed via docker.
    
-   Please refer to the link below for how to install the Passwordless X1280 docker integrated version.
-
-   _To use the docker integrated version, you must allocate at least 1 CPU core and 1 GB of RAM to the Passwordless X1280 server._
+   Please refer to the link below for how to install the Passwordless-X1280-single version.
 
    [https://hub.docker.com/r/dualauth/passwordless-x1280-single](https://hub.docker.com/r/dualauth/passwordless-x1280-single)
 
