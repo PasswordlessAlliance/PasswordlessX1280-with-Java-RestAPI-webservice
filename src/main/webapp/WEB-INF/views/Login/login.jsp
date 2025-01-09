@@ -58,6 +58,9 @@ str_try = "<spring:message code="user.input.try" />";								// 잠시 후 다�
 
 str_serverUrlCopy = "<spring:message code="user.passwordless.serverUrlCopy" />";	// 서버 URL이 복사되었습니다.
 str_regCodeCopy = "<spring:message code="user.passwordless.regCodeCopy" />";		// 등록코드가 복사되었습니다.
+
+str_loginCheck = "<spring:message code="text.passwordless.loginCheck" />";
+str_qrCheck = "<spring:message code="text.passwordless.qrCheck" />";
 </script>
 </head>
 

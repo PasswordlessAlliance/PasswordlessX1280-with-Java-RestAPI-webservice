@@ -441,6 +441,9 @@ function loginPasswordlessCheck() {
 				cancelLogin();
 				setTimeout(() => alert(str_login_refused), 100);	// 인증을 거부하였습니다.
 			}
+			else{
+				alert(str_loginCheck);
+			}
 		}
 	}
 }
@@ -475,6 +478,10 @@ function cancelLogin() {
 	var code = jsonData.code;
 
 	window.localStorage.removeItem('session_id');
+	
+	if (qrSocket && qrSocket.readyState === WebSocket.OPEN) {
+		qrSocket.close();
+	}
 }
 
 // passwordless 관리페이지 이동
@@ -688,6 +695,9 @@ function regPasswordlessOK() {
 	
 		cancelManage();
 	}
+	else{
+		alert(str_qrCheck);
+	}
 }
 
 // Passwordless 서비스 해지
@@ -743,6 +753,10 @@ function cancelManage() {
 	$("#reg_mobile_check").hide();
 	
 	passwordless = window.localStorage.getItem('passwordless');
+	
+	if (qrSocket && qrSocket.readyState === WebSocket.OPEN) {
+		qrSocket.close();
+	}
 	
 	if(passwordless != "Y")
 		selPassword(1);
