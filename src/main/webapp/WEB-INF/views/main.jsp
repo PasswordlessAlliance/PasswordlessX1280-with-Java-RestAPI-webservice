@@ -6,7 +6,7 @@ String session_id = (String) session.getAttribute("id");
 if(session_id == null || session_id.equals(""))
 	response.sendRedirect("/Login/login.do");
 
-//----------------------- 다국어 선택 -----------------------
+// ----------------------- Language Selection -----------------------
 
 String enLang ="";
 String koLang = "";

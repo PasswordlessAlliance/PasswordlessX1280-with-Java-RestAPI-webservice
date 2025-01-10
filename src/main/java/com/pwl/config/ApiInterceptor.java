@@ -19,7 +19,7 @@ public class ApiInterceptor implements HandlerInterceptor {
 
 	@Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-    	response.addHeader("Access-Control-Allow-Origin", "*"); // 허용 도메인 지정
+    	response.addHeader("Access-Control-Allow-Origin", "*"); // Specify Allowed Domains
     	//log.info("############### ApiInterceptor: preHandle");
     	
     	HttpSession session = request.getSession(false);

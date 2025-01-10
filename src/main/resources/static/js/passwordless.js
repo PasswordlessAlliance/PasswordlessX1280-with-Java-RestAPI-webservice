@@ -7,7 +7,7 @@ var pushConnectorUrl = "";
 var pushConnectorToken = "";
 var sessionId = "";
 var loginStatus = false;
-var checkType = "";	// 로그인: "LOGIN", QR등록: "QR"
+var checkType = "";
 
 var str_login = "";
 var str_cancel = "";
@@ -66,7 +66,7 @@ function copyTxt2() {
 	alert(str_regCodeCopy);
 }
 
-// Password 로그인 & Passwordless 로그인 선택 radio 버튼
+// Password Login & Passwordless Login Selection Radio Button
 function selPassword(sel) {
 	if(sel == 1) {
 		if(loginStatus == true) {
@@ -108,7 +108,7 @@ function selPassword(sel) {
 	$("#btn_login").html(str_login);
 }
 
-// 로그인 요청
+// Login Request
 function login() {
 	id = $("#id").val();
 	pw = $("#pw").val();
@@ -120,15 +120,15 @@ function login() {
 	$("#pw").val(pw);
 	
 	if(id == "") {
-		alert(str_input_id);	// ID를 입력하세요.
+		alert(str_input_id);	// Please enter your ID.
 		$("#id").focus();
 		return false;
 	}
 
-	// Password 로그인
+	// Password Login
 	if(selPasswordNo == 1) {
 		if(pw == "") {
-			alert(str_input_password);	// PASSWORD를 입력하세요.
+			alert(str_input_password);	// Please enter a password.
 			$("#pw").focus();
 			return false;
 		}
@@ -157,7 +157,7 @@ function login() {
 	        }
 	    });
 	}
-	// Passwordless 로그인
+	// Passwordless Login
 	else if(selPasswordNo == 2) {
 		if(loginStatus == true)
 			cancelLogin();
@@ -197,7 +197,7 @@ function callApi(data) {
 	return ret_val;
 }
 
-// Passwordless 로그인 요청
+// Passwordless Login Request
 function loginPasswordless() {
 	checkType = "LOGIN";
 	
@@ -209,19 +209,19 @@ function loginPasswordless() {
 		
 		if(token != "") {
 			loginStatus = true;
-			$("#btn_login").html(str_cancel);	// 취소
+			$("#btn_login").html(str_cancel);	// Cancel
 			loginPasswordlessStart(token);
 		}
 	}
 	else if(existId == "F") {
-		alert(str_passwordress_notreg);	// Passwordless 서비스에 등록되어 있지 않습니다.\nPasswordless 등록이 필요합니다.
+		alert(str_passwordress_notreg);	// You are not registered for the Passwordless services.\\nPasswordless registration is required.
 	}
 	else {
 		alert(existId);
 	}
 }
 
-// 인증기가 등록여부 확인 요청
+// Request to Check Authenticator Registration Status
 function passwordlessCheckID(QRReg) {
 	var id = $("#id").val();
 	var ret_val = "";
@@ -260,7 +260,7 @@ function passwordlessCheckID(QRReg) {
 	return ret_val;
 }
 
-// onetime token 요청
+// Onetime Token Request
 function getTokenForOneTime() {
 
 	var id = $("#id").val();
@@ -355,11 +355,11 @@ function loginPasswordlessStart(token) {
 	}
 	else if(code == "200.7") {
 		cancelLogin();
-		alert(str_passwordless_blocked);	// Passwordless 계정이 중지되었습니다.\n계정관리자에게 문의하세요.
+		alert(str_passwordless_blocked);	// Passwordless account has been suspended.\\nContact your account manager.
 	}
 }
 
-// OTP code & 타이머 출력
+// OTP Code & Timer Display
 function drawPasswordlessLogin() {
 	//console.log("----- drawPasswordlessLogin -----");
 
@@ -376,7 +376,7 @@ function drawPasswordlessLogin() {
 			
 			if(gap_millisec > 1500) {
 				check_millisec = today.getTime();
-				//loginPasswordlessCheck();	// polling 방식일때 주석 제거
+				//loginPasswordlessCheck();	// // Remove Comment for Polling Method
 			}
 	
 			gap_millisec = now_millisec - passwordless_milisec;
@@ -399,13 +399,13 @@ function drawPasswordlessLogin() {
 			
 			$("#rest_time").html("0 : 00");
 			
-			setTimeout(() => alert(str_login_expired), 100);	// Passwordless 로그인 시간이 만료되었습니다.
+			setTimeout(() => alert(str_login_expired), 100);	// Passwordless management token expired.
 			setTimeout(() => cancelLogin(), 100);
 		}
 	}
 }
 
-// 승인 대기
+// Pending Approval
 function loginPasswordlessCheck() {
 	//console.log("----- loginPasswordlessCheck -----");
 
@@ -439,7 +439,7 @@ function loginPasswordlessCheck() {
 			}
 			else if(auth == "N") {
 				cancelLogin();
-				setTimeout(() => alert(str_login_refused), 100);	// 인증을 거부하였습니다.
+				setTimeout(() => alert(str_login_refused), 100);	// Authentication was refused.
 			}
 			else{
 				alert(str_loginCheck);
@@ -448,7 +448,7 @@ function loginPasswordlessCheck() {
 	}
 }
 
-// 로그인 취소
+// Login Cancel
 function cancelLogin() {
 	
 	loginStatus = false;
@@ -484,7 +484,7 @@ function cancelLogin() {
 	}
 }
 
-// passwordless 관리페이지 이동
+// Navigate to Passwordless Management Page
 function moveManagePasswordless() {
 	selPasswordNo = 3;
 	$("#passwordlessSelButton").hide();
@@ -500,7 +500,7 @@ function moveManagePasswordless() {
 	$("#pw").attr("disabled", false);
 }
 
-// Passwordless 관리요청
+// Passwordless Management Request
 function managePasswordless() {
 	
 	id = $("#id").val();
@@ -513,13 +513,13 @@ function managePasswordless() {
 	$("#pw").val(pw);
 	
 	if(id == "") {
-		alert(str_input_id);	// ID를 입력하세요.
+		alert(str_input_id);	// Please enter your ID.
 		$("#id").focus();
 		return false;
 	}
 
 	if(pw == "") {
-		alert(str_input_password);	// PASSWORD를 입력하세요.
+		alert(str_input_password);	// Please enter a password.
 		$("#pw").focus();
 		return false;
 	}
@@ -568,7 +568,7 @@ function managePasswordless() {
 	}
 }
 
-// Passwordless 등록 QR코드 정보요청
+// Passwordless Registration QR Code Information Request
 function getPasswordlessQRinfo(PasswordlessToken) {
 	
 	checkType = "QR";
@@ -668,7 +668,7 @@ function drawPasswordlessReg() {
 		var gap_millisec = now_millisec - check_millisec;
 		if(gap_millisec > 1500) {
 			check_millisec = today.getTime();
-			//regPasswordlessOK();	// polling 방식일때 주석 제거
+			//regPasswordlessOK();	// Remove Comments for Polling Method
 		}
 	}
 	else {
@@ -679,12 +679,12 @@ function drawPasswordlessReg() {
 		$("#login_content").show();
 		$("#passwordless_reg_content").hide();
 		
-		setTimeout(() => alert(str_qrreg_expired), 100);	// Passwordless QR 등록시간이 만료되었습니다.
+		setTimeout(() => alert(str_qrreg_expired), 100);	// Passwordless login time has expired.
 		setTimeout(() => cancelManage(), 200);
 	}
 }
 
-// Passwordless 서비스 등록 체크
+// Passwordless Service Registration Check
 function regPasswordlessOK() {
 	var existId = passwordlessCheckID("T");
 	
@@ -700,7 +700,7 @@ function regPasswordlessOK() {
 	}
 }
 
-// Passwordless 서비스 해지
+// Terminate Passwordless Service
 function unregPasswordless() {
 	var passwordlessToken = $("#passwordlessToken").val();
 	var id = $("#id").val();
@@ -723,7 +723,7 @@ function unregPasswordless() {
 		
 		if(code == "000" || code == "000.0") {
 			window.localStorage.removeItem('passwordless');
-			alert(str_passwordless_unreg);	// Passwordless 서비스가 해지되었습니다.\n\n사용자 Password로 로그인하세요.\n\nPasswordless로 로그인하고 싶다면\nPasswordless 서비스를 먼저 등록하세요.
+			alert(str_passwordless_unreg);	// The Passwordless service has been unregistered.\\n\\nPlease log in with your user password.\\n\\nIf you wish to log in using Passwordless,\\nplease register the Passwordless service first.
 			selPassword(1);
 			cancelManage();
 		}
@@ -738,7 +738,7 @@ function unregPasswordless() {
 	}
 }
 
-// 로그인화면으로 이동
+// Navigate to Login Screen
 function cancelManage() {
 	
 	if(timeoutId != null) {
@@ -764,7 +764,7 @@ function cancelManage() {
 		selPassword(2);
 }
 
-//도움말
+// Help
 var showHelp = false;
 function show_help() {
 	if(showHelp == false) {
@@ -790,11 +790,11 @@ function mobileCheck() {
 //-------------------------------------------------- WebSocket -------------------------------------------------
 
 /*
-	- WebSocket readyState
-	  0 CONNECTING	소켓이 생성됐으나 연결은 아직 개방되지 않았습니다.
-	  1 OPEN		연결이 개방되어 통신할 수 있습니다.
-	  2 CLOSING		연결을 닫는 중입니다.
-	  3 CLOSED		연결이 닫혔거나, 개방할 수 없었습니다.
+    - WebSocket readyState
+      0 CONNECTING   The socket has been created but the connection is not yet open.
+      1 OPEN         The connection is open and ready for communication.
+      2 CLOSING      The connection is in the process of closing.
+      3 CLOSED       The connection is closed or could not be opened.
 */
 
 var qrSocket = null;

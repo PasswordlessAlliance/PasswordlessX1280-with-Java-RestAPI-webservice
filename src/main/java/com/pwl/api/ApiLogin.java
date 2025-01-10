@@ -70,15 +70,15 @@ public class ApiLogin {
 	private String recommend;
 	
 	// Passwordless URL
-	private String isApUrl = "/ap/rest/auth/isAp";									// Passwordless 등록여부 확인
-	private String joinApUrl = "/ap/rest/auth/joinAp";								// Passwordless 등록 REST API
-	private String withdrawalApUrl = "/ap/rest/auth/withdrawalAp";					// Passwordless 해지 REST API
-	private String getTokenForOneTimeUrl = "/ap/rest/auth/getTokenForOneTime";		// Passwordless 일회용토큰 요청 REST API
-	private String getSpUrl = "/ap/rest/auth/getSp";								// Passwordless 인증요청 REST API
-	private String resultUrl = "/ap/rest/auth/result";								// Passwordless 인증 결과 요청 REST API
-	private String cancelUrl = "/ap/rest/auth/cancel";								// Passwordless 인증요청 취소 REST API
+	private String isApUrl = "/ap/rest/auth/isAp";									// Check Passwordless Registration Status
+	private String joinApUrl = "/ap/rest/auth/joinAp";								// Passwordless Registration REST API
+	private String withdrawalApUrl = "/ap/rest/auth/withdrawalAp";					// Passwordless Deregistration REST API
+	private String getTokenForOneTimeUrl = "/ap/rest/auth/getTokenForOneTime";		// Passwordless One-Time Token Request REST API
+	private String getSpUrl = "/ap/rest/auth/getSp";								// Passwordless Authentication Request REST API
+	private String resultUrl = "/ap/rest/auth/result";								// Passwordless Authentication Result Request REST API
+	private String cancelUrl = "/ap/rest/auth/cancel";								// Passwordless Authentication Request Cancellation REST API
 	
-	// 로그인
+	// Login
 	@PostMapping(value="loginCheck", produces="application/json;charset=utf8")
 	public Map<String, Object> loginCheck(
 			@RequestParam(value = "id", required = false) String id,
@@ -142,7 +142,7 @@ public class ApiLogin {
 		return mapResult;
 	}
 	
-	// 회원가입
+	// Sign
 	@PostMapping(value="join", produces="application/json;charset=utf8")
 	public Map<String, Object> join(
 			@RequestParam(value = "id", required = false) String id,
@@ -180,7 +180,7 @@ public class ApiLogin {
 		return mapResult;
 	}
 	
-	// 회원탈퇴
+	// Account Deletion
 	@PostMapping(value="withdraw", produces="application/json;charset=utf8")
 	public Map<String, Object> withdraw(HttpServletRequest request) {
 	
@@ -208,7 +208,7 @@ public class ApiLogin {
 		return mapResult;
 	}
 	
-	// 패스워드 변경
+	// Change Password
 	@PostMapping(value="changepw", produces="application/json;charset=utf8")
 	public Map<String, Object> changepw(
 			@RequestParam(value = "id", required = false) String id,
@@ -246,7 +246,7 @@ public class ApiLogin {
 		return mapResult;
 	}
 	
-	// 로그아웃
+	// Logout
 	@PostMapping(value="logout", produces="application/json;charset=utf8")
 	public Map<String, Object> logout(HttpServletRequest request) {
 	
@@ -265,7 +265,7 @@ public class ApiLogin {
 	
 	// ------------------------------------------------ Passwordless ------------------------------------------------
 	
-	// 로그인
+	// Login
 	@PostMapping(value="passwordlessManageCheck", produces="application/json;charset=utf8")
 	public Map<String, Object> passwordlessManageCheck(
 		@RequestParam(value = "id", required = false) String id,
@@ -359,19 +359,20 @@ public class ApiLogin {
 		if(userId == null)		userId = "";
 		if(userToken == null)	userToken = "";
 		
-		// QR 요청 및 해제 시 본인 확인
-		if(url.equals("joinApUrl") || url.equals("withdrawalApUrl")) {
-			// Passwordless 설정을 위한 로그인이 안된 경우
-			if(!matchToken) {
-				modelMap.put("result", messageUtils.getMessage("text.passwordless.abnormal"));	// This is not a normal user.
-				return modelMap;
-			}
-			// Passwordless 설정을 위한 로그인 후 5분 경과 시 Timeout 처리
-			else if(gapTime > 5 * 60 * 1000) {
-				modelMap.put("result", messageUtils.getMessage("text.passwordless.expired"));	// Passwordless management token expired.
-				return modelMap;
-			}
+		// Identity verification for QR request and cancellation
+		if (url.equals("joinApUrl") || url.equals("withdrawalApUrl")) {
+		    // If the user is not logged in for Passwordless settings
+		    if (!matchToken) {
+		        modelMap.put("result", messageUtils.getMessage("text.passwordless.abnormal")); // This is not a normal user.
+		        return modelMap;
+		    }
+		    // If more than 5 minutes have passed after logging in for Passwordless settings, handle as Timeout
+		    else if (gapTime > 5 * 60 * 1000) {
+		        modelMap.put("result", messageUtils.getMessage("text.passwordless.expired")); // Passwordless management token expired.
+		        return modelMap;
+		    }
 		}
+
 		
 		if(!url.equals("resultUrl")) {
 			log.info("passwordlessCallApi : url [" + url + "] params [" + params + "] userId [" + userId + "]");
@@ -423,7 +424,7 @@ public class ApiLogin {
 				log.info("passwordlessCallApi : result [" + result + "]");
 			}
 
-			// 1회용 토큰 요청
+			// One-Time Token Request
 			if(url.equals("getTokenForOneTimeUrl")) {
 				String token = "";
 				String oneTimeToken = "";
@@ -442,17 +443,17 @@ public class ApiLogin {
 				modelMap.put("oneTimeToken", oneTimeToken);
 			}
 			
-			// Passwordless 인증요청 REST API
+			// Passwordless Authentication Request REST API
 			if(url.equals("getSpUrl")) {
 				modelMap.put("sessionId", sessionId);
 			}
 			
-			// Passwordless QR 등록대기 Websocket URL
+			// Passwordless QR Registration Waiting WebSocket URL
 			if(url.equals("joinApUrl")) {
 				modelMap.put("pushConnectorUrl", pushConnectorUrl);
 			}
 			
-			// Passwordless QR 등록대기
+			// Passwordless QR Registration Waiting WebSocket URL
 			if(url.equals("isApUrl")) {
 				log.info("passwordlessCallApi : mapParams=" + mapParams.toString());
 				try {
@@ -464,8 +465,8 @@ public class ApiLogin {
 					    boolean exist = (boolean) (jsonData).get("exist");
 					    
 					    if(exist) {
-					    	// QR등록 완료 시 비밀번호 변경
-					    	log.info("passwordlessCallApi : QR등록완료 --> 비밀번호 변경");
+					    	  // Change password after QR registration is complete
+					    	log.info("passwordlessCallApi : QR Registration Complete --> Change Password");
 					    	String newPw = Long.toString(System.currentTimeMillis()) + ":" + userId;
 							userinfo.setId(userId);
 							userinfo.setPw(newPw);
@@ -480,7 +481,7 @@ public class ApiLogin {
 				}
 			}
 			
-			// Passwordless 승인 대기
+			// Passwordless Approval Waiting
 			if(url.equals("resultUrl")) {
 				JSONParser parser = new JSONParser();
 				try {
@@ -491,8 +492,8 @@ public class ApiLogin {
 					    String auth = (String) (jsonData).get("auth");
 		
 					    if(auth != null && auth.equals("Y")) {
-					    	// 로그인 성공 시 패스워드 변경
-					    	log.info("passwordlessCallApi : 로그인성공 --> 비밀번호 변경");
+					    	// Change password upon successful login
+					    	log.info("passwordlessCallApi : Login Success --> Change Password");
 							String newPw = Long.toString(System.currentTimeMillis()) + ":" + userId;
 							userinfo = new UserInfo();
 							userinfo.setId(userId);

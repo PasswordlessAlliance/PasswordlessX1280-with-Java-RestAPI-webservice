@@ -6,21 +6,21 @@ import com.pwl.domain.Login.UserInfo;
 @Mapper
 public interface LoginMapper {
 
-    // 로그인 체크
+    // Login Check
     UserInfo checkPassword(UserInfo userinfo);
     
-    // 회원정보 검색
+    // Search for User Information
     UserInfo getUserInfo(UserInfo userinfo);
     
-    // 패스워드 업데이트
+    // Password Update
     void updatePassword(UserInfo userinfo);
     
-    // 회원가입
+    // User Registration
     void createUserInfo(UserInfo userinfo);
     
-    // 회원탈퇴
+    // User Deletion
     void withdrawUserInfo(UserInfo userinfo);
     
-    // 비밀번호 변경
+    // Password Change
     void changepw(UserInfo userinfo);
 }

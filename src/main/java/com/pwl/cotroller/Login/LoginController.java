@@ -9,10 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.auth0.jwt.JWT;
-import com.auth0.jwt.JWTVerifier;
-import com.auth0.jwt.algorithms.Algorithm;
-import com.auth0.jwt.interfaces.DecodedJWT;
 import com.pwl.domain.Login.UserInfo;
 import com.pwl.mapper.Login.LoginMapper;
 
@@ -35,37 +31,37 @@ public class LoginController {
 	@Value("${passwordless.serverKey}")
 	private String serverKey;
 	
-	//관리 종류
-	private int REQ_DEL = 1;  			//삭제
-	private int REQ_REG = 2;			//등록
-	private int REQ_AUTH = 3;			//인증
+	// Management types
+	private int REQ_DEL = 1;            // Delete
+	private int REQ_REG = 2;           // Register
+	private int REQ_AUTH = 3;          // Authenticate
 	
-	//관리 결과
-	private int RES_SUCCESS = 1;		//성공
-	private int RES_FAIL = 0;			//실패
+	// Management results
+	private int RES_SUCCESS = 1;       // Success
+	private int RES_FAIL = 0;          // Fail
 	
-	// 로그인
+	// Login
 	@RequestMapping(value="/Login/login.do")
 	public String login(Model model, HttpServletRequest request) {
 
 		return "/Login/login";
 	}
 	
-	// 회원가입
+	// Sign-up
 	@RequestMapping(value="/Login/join.do")
 	public String join(Model model, HttpServletRequest request) {
 		
 		return "/Login/join";
 	}
 	
-	// 비밀번호 변경
+	// Change password
 	@RequestMapping(value="/Login/changepw.do")
 	public String changepw(Model model, HttpServletRequest request) {
 		
 		return "/Login/changepw";
 	}
 
-	// 로그아웃
+	// Logout
 	@RequestMapping(value="/Login/Logout.do")
 	public String Logout(Model model, HttpServletRequest request) {
 		
@@ -87,7 +83,7 @@ public class LoginController {
 		// optional default is GET
 		con.setRequestMethod("GET");
 
-		//add request header
+		// Add request header
 		con.setRequestProperty("User-Agent", USER_AGENT);
 
 		int responseCode = con.getResponseCode();

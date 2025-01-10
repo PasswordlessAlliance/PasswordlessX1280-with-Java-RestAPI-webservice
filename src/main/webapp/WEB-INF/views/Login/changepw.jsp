@@ -2,7 +2,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%
 
-//----------------------- 다국어 선택 -----------------------
+//----------------------- Language Selection -----------------------
 
 String enLang ="";
 String koLang = "";
@@ -50,7 +50,7 @@ if(lang.toLowerCase().equals("ko"))
 				</div>
 			</div>
 			<div class="login_article">
-				<div class="title"><em style="width:100%; text-align:center;"><spring:message code="user.password.find" /></em></div><!-- 비밀번호 찾기 -->
+				<div class="title"><em style="width:100%; text-align:center;"><spring:message code="user.password.find" /></em></div><!-- Forgot your password? -->
 				<div class="content">
 					<div>
 						<form>
@@ -66,9 +66,9 @@ if(lang.toLowerCase().equals("ko"))
 						</form>
 					</div>
 					<div class="btn_zone">
-						<a href="javascript:changepw();" class="btn active_btn"><spring:message code="user.password.reset" /></a><!-- 비밀번호변경 -->
+						<a href="javascript:changepw();" class="btn active_btn"><spring:message code="user.password.reset" /></a><!-- Reset Password -->
 						&nbsp;
-						<a href="/Login/login.do" class="btn active_btn"><spring:message code="user.cancel" /></a><!-- 취소 -->
+						<a href="/Login/login.do" class="btn active_btn"><spring:message code="user.cancel" /></a><!-- Cancel -->
 					</div>           
 				</div>
 			</div>
@@ -101,25 +101,25 @@ function changepw() {
 	$("#pw2").val(pw2);
 	
 	if(id == "") {
-		alert("<spring:message code="user.input.id" />");	// 아이디를 입력하세요.
+		alert("<spring:message code="user.input.id" />");	// Please enter your ID.
 		$("#id").focus();
 		return false;
 	}
 
 	if(pw == "") {
-		alert("<spring:message code="user.input.password" />");	// 비밀번호를 입력하세요.
+		alert("<spring:message code="user.input.password" />");	// Please enter a password.
 		$("#pw").focus();
 		return false;
 	}
 
 	if(pw2 == "") {
-		alert("<spring:message code="user.input.passwordre" />");	// 비밀번호 확인을 입력하세요.
+		alert("<spring:message code="user.input.passwordre" />");	// Please enter confirmation password.
 		$("#pw2").focus();
 		return false;
 	}
 	
 	if(pw != pw2) {
-		alert("<spring:message code="user.input.password.notmatch" />");	// 비밀번호가 일치하지 않습니다.
+		alert("<spring:message code="user.input.password.notmatch" />");	// Passwords do not match.
 		$("#pw2").focus();
 		return false;
 	}

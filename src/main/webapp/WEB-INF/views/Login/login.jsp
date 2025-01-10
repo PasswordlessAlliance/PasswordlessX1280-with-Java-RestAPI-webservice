@@ -6,7 +6,7 @@ String session_id = (String) session.getAttribute("id");
 if(session_id != null && !session_id.equals(""))
 	response.sendRedirect("/main.do");
 
-// ----------------------- 다국어 선택 -----------------------
+//----------------------- Language Selection -----------------------
 
 String enLang ="";
 String koLang = "";
@@ -41,23 +41,23 @@ if(lang.toLowerCase().equals("ko"))
 <%@ include file="/WEB-INF/views/Common/Include/headTop.jsp" %>
 <script src="/js/passwordless.js"></script>
 <script type="text/javascript">
-str_login = "<spring:message code="user.login" />";									// 로그인
-str_cancel = "<spring:message code="user.cancel" />";								// 취소
-str_title_password = "<spring:message code="title.login.password" />";				// 타이틀 - password
-str_title_passwordless = "<spring:message code="title.login.passwordless" />";		// 타이틀 - passwordless
-str_passwordress_notreg = "<spring:message code="text.passwordless.notreg" />";		// Passwordless 등록이 필요합니다.
-str_passwordless_regunreg = "<spring:message code="user.passwordless.regunreg" />";	// passwordless 등록/해지
-str_input_id = "<spring:message code="user.input.id" />";							// ID를 입력하세요.
-str_input_password = "<spring:message code="user.input.password" />";				// 비밀번호를 입력하세요.
-str_passwordless_blocked = "<spring:message code="text.passwordless.blocked" />";	// Passwordless 계정이 중지되었습니다.\n계정관리자에게 문의하세요.
-str_login_expired = "<spring:message code="user.input.login.expired" />";			// Passwordless 로그인 시간이 만료되었습니다.
-str_login_refused = "<spring:message code="user.input.login.refused" />";			// 인증을 거부하였습니다.
-str_qrreg_expired = "<spring:message code="user.input.qrreg.expired" />";			// Passwordless QR 등록시간이 만료되었습니다.
-str_passwordless_unreg = "<spring:message code="text.passwordless.unreg" />";		// Passwordless 서비스 해지
-str_try = "<spring:message code="user.input.try" />";								// 잠시 후 다시 시도하세요.
+str_login = "<spring:message code="user.login" />";									// Login
+str_cancel = "<spring:message code="user.cancel" />";								// Cancel
+str_title_password = "<spring:message code="title.login.password" />";				// Title - password
+str_title_passwordless = "<spring:message code="title.login.passwordless" />";		// Title - passwordless
+str_passwordress_notreg = "<spring:message code="text.passwordless.notreg" />";		// You are not registered for the Passwordless services.\\nPasswordless registration is required.
+str_passwordless_regunreg = "<spring:message code="user.passwordless.regunreg" />";	// Passwordless Reg/Unreg
+str_input_id = "<spring:message code="user.input.id" />";							// Please enter your ID.
+str_input_password = "<spring:message code="user.input.password" />";				// Please enter confirmation password.
+str_passwordless_blocked = "<spring:message code="text.passwordless.blocked" />";	// Passwordless account has been suspended.\\nContact your account manager.
+str_login_expired = "<spring:message code="user.input.login.expired" />";			// Passwordless login time has expired.
+str_login_refused = "<spring:message code="user.input.login.refused" />";			// Authentication was refused.
+str_qrreg_expired = "<spring:message code="user.input.qrreg.expired" />";			// Passwordless login time has expired.
+str_passwordless_unreg = "<spring:message code="text.passwordless.unreg" />";		// Unregistering the Passwordless Services
+str_try = "<spring:message code="user.input.try" />";								// Do you want to unregister Passwordless service?
 
-str_serverUrlCopy = "<spring:message code="user.passwordless.serverUrlCopy" />";	// 서버 URL이 복사되었습니다.
-str_regCodeCopy = "<spring:message code="user.passwordless.regCodeCopy" />";		// 등록코드가 복사되었습니다.
+str_serverUrlCopy = "<spring:message code="user.passwordless.serverUrlCopy" />";	// Server URL has been copied.
+str_regCodeCopy = "<spring:message code="user.passwordless.regCodeCopy" />";		// Register code has been copied.
 
 str_loginCheck = "<spring:message code="text.passwordless.loginCheck" />";
 str_qrCheck = "<spring:message code="text.passwordless.qrCheck" />";
@@ -119,9 +119,9 @@ str_qrCheck = "<spring:message code="text.passwordless.qrCheck" />";
 					<div class="pwless_info">
 						<a href="javascript:hide_help();" class="cbtn_ball"><img src="/image/ic_fiicls.png" height="20" alt=""></a>
 						<p>
-							<spring:message code="text.passwordless.help1" /><!-- Passwordless 서비스는 보안성과 편리성을 갖춘 무료 인증 서비스입니다. -->
+							<spring:message code="text.passwordless.help1" /><!-- The Passwordless service is a free authentication service that offers security and convenience. -->
 							<br><br>
-							<spring:message code="text.passwordless.help2" /><!-- Passwordless 서비스를 이용하기 위해서는 스마트폰에 Passwordless X1280앱을 설치 한 후 QR코드를 스캔하여 이용할 수 있습니다. -->
+							<spring:message code="text.passwordless.help2" /><!-- To use the Passwordless service, install the Passwordless X1280 app on your smartphone and then scan the QR code to sign-in. -->
 							<br>
 							<br>
 							<p style="width:100%;text-align:center;font-size:140%;font-weight:800;">
@@ -137,37 +137,37 @@ str_qrCheck = "<spring:message code="text.passwordless.qrCheck" />";
 								<img src="/image/app_google_qr.png" style="width:45%;">
 							</p>
 							<br>
-							<spring:message code="text.passwordless.help3" /><!-- 제공되는 Passwordless 서비스는 UN산하 국제기술표준기구인 ITU-T가 X.1280으로 권고하는  표준 기술로 본 온라인 서비스가 사용자에게 무료로 제공 중에 있습니다. -->
+							<spring:message code="text.passwordless.help3" /><!-- The Passwordless service provided is based on the standard technology recommended as X.1280 by ITU-T, a international technical standards organization under the UN. This online service is currently offering it to users for free. -->
 							<br>
 							<br>
-							<spring:message code="text.passwordless.help4" /><!-- Passwordless를 통해 안전하고 편리한 나만의 온라인 서비스를 만들어 보세요! -->
+							<spring:message code="text.passwordless.help4" /><!-- Create your own safe and convenient online service with Passwordless! -->
 						</p>
 					</div>
 					
 					<div id="passwordlessNotice" style="display:none;">
 						<div style="text-align: center;line-height:24px;">
-							<spring:message code="text.passwrodless.verify" /><!-- Passwordless 서비스를 등록/해지 하려면<br>사용자 인증이 필요합니다. -->
+							<spring:message code="text.passwrodless.verify" /><!-- To register/unregister the passwordless<br>service, user verification is required. -->
 						</div>
 					</div>
 					
 					<div class="btn_zone">
-						<a href="javascript:login();" class="btn active_btn" id="btn_login"><spring:message code="user.login" /></a><!-- 로그인 -->
+						<a href="javascript:login();" class="btn active_btn" id="btn_login"><spring:message code="user.login" /></a><!-- Login -->
 					</div>
 					<div class="btn_zone" id="login_mobile_check" name="login_mobile_check" style="display:none;">
-						<a href="javascript:mobileCheck();" class="btn active_btn"><spring:message code="user.input.afterconfirm" /></a><!-- 모바일 인증 후 확인 --><!-- Websocket 접속 오류 시 수동으로 확인 -->
+						<a href="javascript:mobileCheck();" class="btn active_btn"><spring:message code="user.input.afterconfirm" /></a><!-- Confirm after mobile authentication --><!-- Manually Check in Case of WebSocket Connection Error -->
 					</div>
 					
 					<div class="menbership" id="login_bottom1" name="login_bottom" style="text-align:center;">
-						<a href="./join.do"><spring:message code="user.join" /></a><!-- 회원가입 -->
-						<a href="./changepw.do"><spring:message code="user.password.find" /></a><!-- 비밀번호찾기 -->
+						<a href="./join.do"><spring:message code="user.join" /></a><!-- Sign -->
+						<a href="./changepw.do"><spring:message code="user.password.find" /></a><!-- Forgot your password? -->
 					</div>
 					<div class="menbership" id="login_bottom2" name="login_bottom" style="text-align:center;">
-						<a href="./join.do"><spring:message code="user.join" /></a><!-- 회원가입 -->
-						<a href="javascript:moveManagePasswordless();"><font style="font-weight:800;"><spring:message code="user.passwordless.regunreg" /></font></a><!-- Passwordless 등록/해지 -->
+						<a href="./join.do"><spring:message code="user.join" /></a><!-- Sign -->
+						<a href="javascript:moveManagePasswordless();"><font style="font-weight:800;"><spring:message code="user.passwordless.regunreg" /></font></a><!-- Passwordless Reg/Unreg -->
 					</div>
 					<div class="menbership" id="manage_bottom" name="manage_bottom" style="display:none;text-align:center;">
-						<a href="./changepw.do"><spring:message code="user.password.find" /></a><!-- 비밀번호찾기 -->
-						<a href="javascript:cancelManage();"><font style="font-weight:800;"><spring:message code="user.login" /></font></a><!-- 로그인 -->
+						<a href="./changepw.do"><spring:message code="user.password.find" /></a><!-- Forgot your password? -->
+						<a href="javascript:cancelManage();"><font style="font-weight:800;"><spring:message code="user.login" /></font></a><!-- Login -->
 					</div>
 				</div>
 				
@@ -175,12 +175,12 @@ str_qrCheck = "<spring:message code="text.passwordless.qrCheck" />";
 					<div style="text-align:center;">
 						<span style="width:100%; text-align:center; font-weight:500; font-size:24px;">
 							<br>
-							<spring:message code="text.passwordless.reg1" /><!-- Passwordless 서비스 등록 -->
+							<spring:message code="text.passwordless.reg1" /><!-- Registering the Passwordless Services -->
 						</span>
 						<br>
 						<img id="qr" name="qr" src="" width="300px" height="300px" style="display:inline-block;margin-top:10px;">
 						<p style="width:100%; padding:0% 0%; font-weight:500; font-size:16px; line-height:24px;">
-							<spring:message code="text.passwordless.reg2" /><!-- 스마트폰에 Passwodless X1280앱을<br>설치한 후 QR코드를 스캔하세요. -->
+							<spring:message code="text.passwordless.reg2" /><!-- After installing the Passwordless X1280 app on your smartphone, please scan the QR code. -->
 						</p>
 						<br>
 						<span style="display:inline-block; width:100%; font-size:18px; padding:10px; margin-bottom:20px;">
@@ -201,33 +201,33 @@ str_qrCheck = "<spring:message code="text.passwordless.qrCheck" />";
 						</span>
 					</div>
 					<div class="btn_zone">
-						<a href="javascript:cancelManage();" class="btn active_btn" id="btn_login"><spring:message code="user.cancel" /></a><!-- 취소 -->
+						<a href="javascript:cancelManage();" class="btn active_btn" id="btn_login"><spring:message code="user.cancel" /></a><!-- Cancel -->
 					</div>
 					<div class="btn_zone" id="reg_mobile_check" name="reg_mobile_check" style="display:none;">
-						<a href="javascript:mobileCheck();" class="btn active_btn"><spring:message code="user.input.afterconfirm" /></a><!-- 모바일 인증 후 확인 --><!-- Websocket 접속 오류 시 수동으로 확인 -->
+						<a href="javascript:mobileCheck();" class="btn active_btn"><spring:message code="user.input.afterconfirm" /></a><!-- Confirm after mobile authentication --><!-- Manually Check in Case of WebSocket Connection Error -->
 					</div>
 				</div>
 				<input type="hidden" id="passwordlessToken" name="passwordlessToken" value="">
 				<div id="passwordless_unreg_content" style="display:none;width:100%; text-align:center; font-weight:500; font-size:24px; line-height:35px;">
-					<spring:message code="text.passwordless.unreg1" /><!-- Passwordless 서비스 해지 -->
+					<spring:message code="text.passwordless.unreg1" /><!-- Unregistering the Passwordless Services -->
 					<br>
 					<br>
 					<div class="passwordless_unregist">
 						<div style="padding: 0px;">
 							<button type="button" id="btn_unregist" name="btn_unregist" style="height:120px; border-radius:4px; color:#FFFFFF; background:#3C9BEE; border-color:#3090E0; padding: 4px 20px; font-size: 20px; line-height:40px;">
-								<spring:message code="text.passwordless.unreg2" /><!-- Passwordless 서비스<br>해지하기 -->
+								<spring:message code="text.passwordless.unreg2" /><!--Passwordless service<br>unregistration -->
 							</button>
 						</div>
 						<div>
 							&nbsp;
 							<br>
 							<p style="width:100%; padding:0% 0%; font-weight:500; font-size:16px; line-height:24px;">
-								<spring:message code="text.passwordless.unreg3" /><!-- Passwodless서비스를 해지하면<br>사용자 패스워드로 로그인해야 합니다. -->
+								<spring:message code="text.passwordless.unreg3" /><!-- If you unregister the Passwordless service, you will need to log in with your user password -->
 							</p>
 						</div>
 						<br>
 						<div class="btn_zone">
-							<a href="javascript:cancelManage();" class="btn active_btn" id="btn_login"><spring:message code="user.cancel" /></a><!-- 취소 -->
+							<a href="javascript:cancelManage();" class="btn active_btn" id="btn_login"><spring:message code="user.cancel" /></a><!-- Cancel -->
 						</div>
 					</div>
 				</div>
@@ -254,7 +254,7 @@ input.addEventListener("keyup", function (event) {
 });
 
 $("#btn_unregist").on("click", function(){
-	if(confirm("<spring:message code="user.input.passwordless.unreg" />")) {	// Passwordless 서비스를 해지하시겠습니까?
+	if(confirm("<spring:message code="user.input.passwordless.unreg" />")) {	// Do you want to unregister Passwordless service?
 		unregPasswordless();
 	}
 })
