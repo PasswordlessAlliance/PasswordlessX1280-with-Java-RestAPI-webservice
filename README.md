@@ -19,6 +19,16 @@ To proceed with the process below, you have to sign up the Members site and the 
 
 [https://members.passwordlessalliance.org](https://members.passwordlessalliance.org)
 
+## YouTube Training Videos
+We provide training videos to help you easily apply Passwordless X1280.
+
+Theoretical Overview – [https://www.youtube.com/watch?v=1vUVOdZ4lJ4](https://www.youtube.com/watch?v=1vUVOdZ4lJ4)
+
+Step-by-Step Demonstration – [https://www.youtube.com/watch?v=Rt6kfMZ82o8](https://www.youtube.com/watch?v=Rt6kfMZ82o8)
+
+These videos are based on the content available at:
+[https://github.com/PasswordlessAlliance/PasswordlessX1280-with-Java-RestAPI-webservice](https://github.com/PasswordlessAlliance/PasswordlessX1280-with-Java-RestAPI-webservice)
+
 ## Project running environment
 * Windows 11 Pro
 * MariaDB 10.6.5
