@@ -41,14 +41,6 @@ if(lang.toLowerCase().equals("ko"))
 <div class=" main_container">
 	<div class=" main_container">
 		<div class="modal">
-			<div style="width:100%; text-align:right;">
-				<div class="select_lang">
-					<select id="lang" name="lang" onchange="javascript:selLang();">
-						<option value="en"<%=enLang %>>EN</option>
-						<option value="ko"<%=koLang %>>KR</option>
-					</select>
-				</div>
-			</div>
 			<div class="login_article">
 				<div class="title"><em style="width:100%; text-align:center;"><spring:message code="user.join" /></em></div><!-- Create Account -->
 				<div class="content">
@@ -62,9 +54,6 @@ if(lang.toLowerCase().equals("ko"))
 							</div>
 							<div class="input_group">
 								<input type="password" id="pw_re" placeholder="Confirmation PASSWORD" />
-							</div>
-							<div class="input_group">
-								<input type="text" id="email" placeholder="Email" />
 							</div>
 						</form>
 					</div>
@@ -83,6 +72,8 @@ if(lang.toLowerCase().equals("ko"))
 
 <script>
 $(document).ready(function() {
+	const headers = document.querySelectorAll('.accordion-header');
+	headers[0].click();
 	$("#id").focus();
 })
 
@@ -94,17 +85,14 @@ function join() {
 	id = $("#id").val();
 	pw = $("#pw").val();
 	pw_re = $("#pw_re").val();
-	email = $("#email").val();
 	
 	id = trim(id);
 	pw = trim(pw);
 	pw_re = trim(pw_re);
-	email = trim(email);
 
 	$("#id").val(id);
 	$("#pw").val(pw);
 	$("#pw_re").val(pw_re);
-	$("#email").val(email);
 
 	if(id == "") {
 		alert("<spring:message code="user.input.id" />");	// Please enter your ID.
@@ -131,19 +119,12 @@ function join() {
 		return false;
 	}
 
-	if(email == "") {
-		alert("<spring:message code="user.input.email" />");	// Please enter your email.
-		$("#email").focus();
-		return false;
-	}
-	
 	$.ajax({
         url : "/api/Login/join",
         type : "post",
         data : {
         	"id" : id,
-            "pw" : pw,
-            "email" : email
+            "pw" : pw
         },
         success : function(res) {
         	if(res.result == "OK") {
@@ -162,5 +143,5 @@ function join() {
     });
 }
 </script>
-
+<jsp:include page="/WEB-INF/views/Common/Include/accordion.jsp" />
 </html>

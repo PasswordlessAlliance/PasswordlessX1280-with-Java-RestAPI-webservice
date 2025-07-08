@@ -14,7 +14,6 @@ USE passwordless;
 CREATE TABLE userinfo (
 	`id` varchar(1000) NOT NULL,
 	`pw` VARCHAR(1000) NOT NULL,
-	`email` VARCHAR(1000) NOT NULL,
 	`regdate` datetime NULL default NOW(),
 	PRIMARY KEY (`id` ASC)
 );

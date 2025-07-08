@@ -12,6 +12,5 @@ import lombok.NoArgsConstructor;
 public class UserInfo {
 	private String id;
 	private String pw;
-	private String email;
 	private Date regdate;
 }

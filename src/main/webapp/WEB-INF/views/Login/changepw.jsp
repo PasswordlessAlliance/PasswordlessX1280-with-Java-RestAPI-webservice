@@ -35,20 +35,15 @@ if(lang.toLowerCase().equals("ko"))
 <html>
 <head>
 <%@ include file="/WEB-INF/views/Common/Include/headTop.jsp" %>
+<script type="text/javascript">
+str_changepw = "<spring:message code="user.passwordless.changepw" />";
+</script>
 </head>
 
 <body>
 <div class=" main_container">
 	<div class=" main_container">
 		<div class="modal">
-			<div style="width:100%; text-align:right;">
-				<div class="select_lang">
-					<select id="lang" name="lang" onchange="javascript:selLang();">
-						<option value="en"<%=enLang %>>EN</option>
-						<option value="ko"<%=koLang %>>KR</option>
-					</select>
-				</div>
-			</div>
 			<div class="login_article">
 				<div class="title"><em style="width:100%; text-align:center;"><spring:message code="user.password.find" /></em></div><!-- Forgot your password? -->
 				<div class="content">
@@ -76,6 +71,7 @@ if(lang.toLowerCase().equals("ko"))
 		<div class="modal_bg"></div>
 	</div>
 </div>
+<jsp:include page="/WEB-INF/views/Common/Include/accordion.jsp" />
 </body>
 
 <script>
@@ -133,7 +129,7 @@ function changepw() {
         },
         success : function(res) {
         	if(res.result == "OK") {
-        		alert("Password changing complete.");
+        		alert(str_changepw);
             	location.href = "/Login/login.do";
         	}
             else {

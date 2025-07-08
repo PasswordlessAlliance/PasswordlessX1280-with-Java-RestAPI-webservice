@@ -50,14 +50,6 @@ if(lang.toLowerCase().equals("ko"))
 <div class=" main_container">
 	<div class="modal">
 		<div class="sample_site" sylte="margin: -150px 0 0 0;">
-			<div style="width:100%; text-align:right; margin:20px 45px;">
-				<div class="select_lang">
-					<select id="lang" name="lang" onchange="javascript:selLang();">
-						<option value="en"<%=enLang %>>EN</option>
-						<option value="ko"<%=koLang %>>KR</option>
-					</select>
-				</div>
-			</div>
 			<div style="width:100%;">
 				<ul>
 					<li>
@@ -86,7 +78,7 @@ function logout() {
         url : "/api/Login/logout",
         type : "post",
         success : function(res) {
-            location.href = "/";
+            location.href = "/Login/login.do";
         },
         error : function(res) {
             alert(res.msg);

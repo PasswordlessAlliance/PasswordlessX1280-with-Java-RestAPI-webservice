@@ -26,7 +26,6 @@ var str_try = "";
 
 $(document).ready(function() {
 	passwordless = window.localStorage.getItem('passwordless');
-	
 	if(passwordless != "Y")
 		selPassword(1);
 	else
@@ -34,6 +33,15 @@ $(document).ready(function() {
 	
 	$("#id").focus();
 })
+
+function changeGuide(guideNo) {
+	const headers = document.querySelectorAll('.accordion-header');
+	headers.forEach((header, i) => {
+	  const content = header.nextElementSibling;
+	  closeAccordion(header, content);
+	});
+	headers[guideNo].click();
+}
 
 function trim(stringToTrim) {
 	if(stringToTrim != "")
@@ -214,6 +222,7 @@ function loginPasswordless() {
 		}
 	}
 	else if(existId == "F") {
+		changeGuide(2);
 		alert(str_passwordress_notreg);	// You are not registered for the Passwordless services.\\nPasswordless registration is required.
 	}
 	else {
@@ -460,7 +469,7 @@ function cancelLogin() {
 	
 	$("#btn_login").html(str_login);
 	$("#passwordless_bar").css("width", "0%");
-	$("#passwordless_num").text("--- ---");
+	$("#passwordless_num").text("");
 	$("#login_mobile_check").hide();
 
 	sessionId = window.localStorage.getItem('session_id');
@@ -486,6 +495,9 @@ function cancelLogin() {
 
 // Navigate to Passwordless Management Page
 function moveManagePasswordless() {
+	
+	changeGuide(2);
+	
 	selPasswordNo = 3;
 	$("#passwordlessSelButton").hide();
 	$("#login_bottom1").hide();
@@ -570,6 +582,8 @@ function managePasswordless() {
 
 // Passwordless Registration QR Code Information Request
 function getPasswordlessQRinfo(PasswordlessToken) {
+	
+	changeGuide(3);
 	
 	checkType = "QR";
 
@@ -694,6 +708,8 @@ function regPasswordlessOK() {
 		$("#passwordless_reg_content").show();
 	
 		cancelManage();
+		
+		alert(str_randomize);
 	}
 	else{
 		alert(str_qrCheck);
@@ -726,6 +742,8 @@ function unregPasswordless() {
 			alert(str_passwordless_unreg);	// The Passwordless service has been unregistered.\\n\\nPlease log in with your user password.\\n\\nIf you wish to log in using Passwordless,\\nplease register the Passwordless service first.
 			selPassword(1);
 			cancelManage();
+			
+			location.href = "/Login/changepw.do";
 		}
 		else {
 			cancelManage();
@@ -740,6 +758,8 @@ function unregPasswordless() {
 
 // Navigate to Login Screen
 function cancelManage() {
+	
+	changeGuide(4);
 	
 	if(timeoutId != null) {
 		clearTimeout(timeoutId);

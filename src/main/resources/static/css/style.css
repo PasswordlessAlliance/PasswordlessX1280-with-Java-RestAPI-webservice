@@ -7,6 +7,8 @@
 .fl{ float: left;}
 
 body{overflow: scroll;  overflow-x: hidden; background: rgba(0,0,0,0.21);}
+
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -104,3 +106,231 @@ input:disabled{ background: #F0F0F0}
 
 @media (max-width: 300px) {
 }
+
+
+/* 
+  CSS Update .v2-2
+  2025-07-08 
+*/
+body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+
+.modal {
+  margin: 220px 0 0 0;
+}
+
+.select_lang_container {
+  text-align: right;
+  display: none;
+}
+
+.accordion {
+  position: fixed;
+  right: 0;
+  padding: 10px 20px;
+  top: 0;
+  width: 28%;
+  height: 100%;
+  z-index: 100;
+  background: #fff;
+  overflow-y: scroll;
+}
+
+@media (min-width: 1800px) {
+  .accordion {
+    width: 20%;
+    padding: 40px;
+  }
+}
+
+.accordion img {
+  max-width: 100%;
+  height: auto;
+}
+
+.accordion p {
+  font-size: 16px;
+  line-height: 1.25;
+  margin: 6px 0 12px;
+}
+
+.accordion .bt20 {
+  margin-bottom: 20px;
+}
+.accordion .bt30 {
+  margin-bottom: 30px;
+}
+.accordion .bt40 {
+  margin-bottom: 40px;
+}
+
+
+.accordion-overview {
+  position: relative;
+  margin: 20px 0;
+}
+
+.accordion-overview h5 {
+  font-size: 14px;
+}
+.accordion-overview h3 {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+@media (min-width: 1800px) {
+  .accordion-overview {
+    position: relative;
+    margin: 40px 0 80px;
+  }
+  .accordion-overview h5 {
+    font-size: 24px;
+  }
+  .accordion-overview h3 {
+    font-size: 36px;
+    font-weight: 700;
+  }
+}
+
+.accordion-item:last-child {
+  margin-bottom: 50px;
+}
+
+.accordion-header {
+  width: 100%;
+  padding: 10px 12px;
+  text-align: left;
+  font-weight: bold;
+  background-color: #eee;
+  color: #898989;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: relative;
+  display: flex;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  border-radius: 12px;
+}
+
+.accordion-header span {
+  position: relative;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #898989;
+  color: #fff;
+  display: flex;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  margin: 0 12px 0 0;
+}
+
+.accordion-header span em {
+  position: relative;
+  top: -1px;
+}
+
+.accordion-header:hover {
+  background-color: #ddd;
+}
+
+.accordion-header.open {
+  background-color: #4EA1FF; 
+  color: #fff;
+  margin-bottom: 0;
+}
+
+.accordion-header.open span {
+  color: #4EA1FF; 
+  background-color: #D7EAFF; 
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out, padding 0.3s ease;
+  padding: 0 20px;
+}
+.accordion-content.open {
+  padding: 20px;
+} 
+
+.accordion-content h5 {
+  color: #1776E2; 
+  font-size: 17px;
+  font-weight: 600;
+  margin: 0 0 12px;
+}
+
+.accordion-content img.more {
+  max-width: 90px;
+  height: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.accordion-content h5 + p + h5 {
+    margin-top: 30px;
+}
+
+.accordion-content ul {
+  margin: 0 0 18px;
+  padding-left: 18px;
+}
+
+.accordion-content ul li {
+  list-style-type: disc;
+  margin: 0 0 14px;
+}
+
+.accordion-content .content-images {
+  position: relative;
+  display: flex;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.accordion-content .content-details {
+  position: relative;
+  display: flex;
+  margin: 20px 0;
+}
+.accordion-content .content-details.between {
+  -moz-justify-content: space-between;
+  -ms-justify-content: space-between;
+  justify-content: space-between;
+}
+
+.accordion-content .content-details > div {
+  flex-basis: 49%; 
+}
+
+.accordion-content .content-details > div.w60 {
+  flex-basis: 60%; 
+}
+
+.accordion-content .content-details > div.w40 {
+  flex-basis: 40%; 
+}
+
+.accordion-content .content-details > div.w30 {
+  flex-basis: 30%; 
+  margin-right: 3.5%;
+}
+

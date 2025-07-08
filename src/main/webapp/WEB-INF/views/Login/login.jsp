@@ -61,20 +61,13 @@ str_regCodeCopy = "<spring:message code="user.passwordless.regCodeCopy" />";		//
 
 str_loginCheck = "<spring:message code="text.passwordless.loginCheck" />";
 str_qrCheck = "<spring:message code="text.passwordless.qrCheck" />";
+str_randomize = "<spring:message code="user.passwordless.randomize" />";			// Passwordless X1280 service registration is complete.The password has been changed to a random value.
 </script>
 </head>
 
-<body>
+<body onload="javascript:changeGuide(4);">
 <div class=" main_container">
 	<div class="modal">
-		<div style="width:100%; text-align:right;">
-			<div class="select_lang">
-				<select id="lang" name="lang" onchange="javascript:selLang();">
-					<option value="en"<%=enLang %>>EN</option>
-					<option value="ko"<%=koLang %>>KR</option>
-				</select>
-			</div>
-		</div>
 		<div class="login_article">
 			<div class="title"><em style="width:100%; text-align:center;" id="login_title" name="login_title"></em></div>
 			<div class="content">
@@ -91,7 +84,7 @@ str_qrCheck = "<spring:message code="text.passwordless.qrCheck" />";
 						<div class="timer" id="bar_content" name="bar_content" style="position: relative; background: url('/image/timerBG.png') no-repeat center right; border-radius: 8px; background-size: cover;">
 							<div class="pbar" id="passwordless_bar" style="background: rgb(55 138 239 / 70%); height: 50px;width: 100%;border-radius: 8px; animation-duration: 0ms; width:0%;"></div>
 							<div class="OTP_num" id="passwordless_num" name="passwordless_num" style="text-shadow:2px 2px 3px rgba(0,0,0,0.7); top: 0; position: absolute; font-size: 22px; color: #ffffff; text-align: center; height:50px; width: 100%; line-height: 50px; font-weight: 800; letter-spacing: 1px;">
-								--- ---
+								&nbsp;
 							</div>
 						</div>
 					</div>
@@ -235,6 +228,7 @@ str_qrCheck = "<spring:message code="text.passwordless.qrCheck" />";
 		</div>
 	</div>
 </div>
+<jsp:include page="/WEB-INF/views/Common/Include/accordion.jsp" />
 </body>
 <script>
 var input = document.getElementById("id");

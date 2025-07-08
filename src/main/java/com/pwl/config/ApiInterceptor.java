@@ -22,11 +22,12 @@ public class ApiInterceptor implements HandlerInterceptor {
     	response.addHeader("Access-Control-Allow-Origin", "*"); // Specify Allowed Domains
     	//log.info("############### ApiInterceptor: preHandle");
     	
+    	/*
     	HttpSession session = request.getSession(false);
 
     	String lang = request.getParameter("lang");
     	if(lang == null)
-    		lang = "";
+    		lang = "en";
     	
     	if(lang.equals("")) {
 			
@@ -45,12 +46,13 @@ public class ApiInterceptor implements HandlerInterceptor {
 		}
 
 		if(!"ko".equalsIgnoreCase(lang) && !"en".equalsIgnoreCase(lang)){
-			lang = "ko";
+			lang = "en";
 		}
     	
     	if(session != null) {
         	session.setAttribute("locale", new Locale(lang));
         }
+        */
     	
     	return true;
     }

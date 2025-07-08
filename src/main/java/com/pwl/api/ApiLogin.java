@@ -147,16 +147,14 @@ public class ApiLogin {
 	public Map<String, Object> join(
 			@RequestParam(value = "id", required = false) String id,
 			@RequestParam(value = "pw", required = false) String pw,
-			@RequestParam(value = "email", required = false) String email,
 			HttpServletRequest request) {
 	
 		if(id == null)		id = "";
 		if(pw == null)		pw = "";
-		if(email == null)	email = "";
 
 		Map<String, Object> mapResult = new HashMap<String, Object>();
 
-		if(!id.equals("") && !pw.equals("") && !email.equals("")) {
+		if(!id.equals("") && !pw.equals("")) {
 			
 			UserInfo userinfo = new UserInfo();
 			userinfo.setId(id);
@@ -169,7 +167,6 @@ public class ApiLogin {
 			}
 			else {
 				userinfo.setPw(pw);
-				userinfo.setEmail(email);
 				loginMapper.createUserInfo(userinfo);
 				log.info("join completed.");
 

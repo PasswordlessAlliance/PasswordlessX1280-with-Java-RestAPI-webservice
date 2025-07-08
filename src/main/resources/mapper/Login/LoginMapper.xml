@@ -5,14 +5,14 @@
 
 	<!-- Login Check -->
 	<select id="checkPassword" parameterType="UserInfo" resultType="UserInfo">
-		SELECT id, pw, email, regdate
+		SELECT id, pw, regdate
 		FROM userinfo
 		WHERE id = '${id}' AND pw = password('${pw}')
 	</select>
 
 	<!-- Search for User Information -->
 	<select id="getUserInfo" parameterType="UserInfo" resultType="UserInfo">
-		SELECT id, pw, email, regdate
+		SELECT id, pw, regdate
 		FROM userinfo
 		WHERE id = '${id}'
 	</select>
@@ -26,8 +26,8 @@
 	
 	<!-- User Registration -->
 	<insert id="createUserInfo">
-		INSERT INTO userinfo (id, pw, email)
-		VALUES('${id}', password('${pw}'), '${email}')
+		INSERT INTO userinfo (id, pw)
+		VALUES('${id}', password('${pw}'))
 	</insert>
 	
 	<!-- User Deletion -->
