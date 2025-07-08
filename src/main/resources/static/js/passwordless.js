@@ -25,14 +25,33 @@ var str_passwordless_unreg = "";
 var str_try = "";
 
 $(document).ready(function() {
+	
 	passwordless = window.localStorage.getItem('passwordless');
 	if(passwordless != "Y")
 		selPassword(1);
 	else
 		selPassword(2);
 	
-	$("#id").focus();
+	myId = localStorage.getItem("myId");
+	if(myId != null) {
+		$('#save_id').prop('checked', true);
+		$("#id").val(myId);
+	}
+	else {	
+		$("#id").focus();
+	}
 })
+
+function saveMyID() {
+	var isChecked = $('#save_id').is(':checked');
+	if(isChecked) {
+		id = $("#id").val();
+		localStorage.setItem("myId", id);
+	}
+	else {
+		localStorage.removeItem("myId");
+	}
+}
 
 function changeGuide(guideNo) {
 	const headers = document.querySelectorAll('.accordion-header');
@@ -118,6 +137,9 @@ function selPassword(sel) {
 
 // Login Request
 function login() {
+	
+	saveMyID();
+	
 	id = $("#id").val();
 	pw = $("#pw").val();
 	

@@ -73,6 +73,10 @@ str_randomize = "<spring:message code="user.passwordless.randomize" />";			// Pa
 			<div class="content">
 				<div id="login_content">
 					<form id="frm">
+						<div style="font-size: 80%;">
+							<input type="checkbox" id="save_id" name="save_id" onchange="javascript:saveMyID();"/>
+							<label for="save_id" style="color:#8888FF;font-size:90%;"> Save ID</label>
+						</div>
 						<div class="input_group">
 							<input type="text" id="id" name="id" placeholder="ID" />
 						</div>
