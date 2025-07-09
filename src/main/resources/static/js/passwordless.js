@@ -809,17 +809,7 @@ function cancelManage() {
 // Help
 var showHelp = false;
 function show_help() {
-	if(showHelp == false) {
-		$(".pwless_info").show();
-		showHelp = true;
-	}
-	else {
-		hide_help();
-	}
-}
-function hide_help() {
-	$(".pwless_info").hide();
-	showHelp = false;
+	changeGuide(1);
 }
 
 function mobileCheck() {

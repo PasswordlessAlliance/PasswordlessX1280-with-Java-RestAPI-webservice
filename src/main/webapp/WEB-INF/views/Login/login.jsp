@@ -113,34 +113,6 @@ str_randomize = "<spring:message code="user.passwordless.randomize" />";			// Pa
 						</div>
 					</div>
 					
-					<div class="pwless_info">
-						<a href="javascript:hide_help();" class="cbtn_ball"><img src="/image/ic_fiicls.png" height="20" alt=""></a>
-						<p>
-							<spring:message code="text.passwordless.help1" /><!-- The Passwordless service is a free authentication service that offers security and convenience. -->
-							<br><br>
-							<spring:message code="text.passwordless.help2" /><!-- To use the Passwordless service, install the Passwordless X1280 app on your smartphone and then scan the QR code to sign-in. -->
-							<br>
-							<br>
-							<p style="width:100%;text-align:center;font-size:140%;font-weight:800;">
-								<font color="#5555FF">Passwordless X1280 Mobile App</font>
-								<br>
-								<br>
-								<a href="https://apps.apple.com/us/app/autootp/id1290713471" target="_new_app_popup"><img src="/image/app_apple_icon.png" style="width:45%;"></a>
-								&nbsp;
-								<a href="https://play.google.com/store/apps/details?id=com.estorm.autopassword" target="_new_app_popup"><img src="/image/app_google_icon.png" style="width:45%;"></a>
-								<br>
-								<img src="/image/app_apple_qr.png" style="width:45%;">
-								&nbsp;
-								<img src="/image/app_google_qr.png" style="width:45%;">
-							</p>
-							<br>
-							<spring:message code="text.passwordless.help3" /><!-- The Passwordless service provided is based on the standard technology recommended as X.1280 by ITU-T, a international technical standards organization under the UN. This online service is currently offering it to users for free. -->
-							<br>
-							<br>
-							<spring:message code="text.passwordless.help4" /><!-- Create your own safe and convenient online service with Passwordless! -->
-						</p>
-					</div>
-					
 					<div id="passwordlessNotice" style="display:none;">
 						<div style="text-align: center;line-height:24px;">
 							<spring:message code="text.passwrodless.verify" /><!-- To register/unregister the passwordless<br>service, user verification is required. -->
