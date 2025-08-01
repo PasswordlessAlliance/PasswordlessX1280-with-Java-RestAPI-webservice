@@ -96,22 +96,6 @@
 </div>
 
 <script>
-	var input = document.getElementById("id");
-	input.addEventListener("keyup", function (event) {
-		if (event.keyCode === 13) {
-			event.preventDefault();
-			login();
-		}
-	});
-
-	var input = document.getElementById("pw");
-	input.addEventListener("keyup", function (event) {
-		if (event.keyCode === 13) {
-			event.preventDefault();
-			login();
-		}
-	});
-
 //accordion 
 const headers = document.querySelectorAll('.accordion-header');
 
