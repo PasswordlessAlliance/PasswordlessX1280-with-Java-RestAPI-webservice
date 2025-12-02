@@ -37,6 +37,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
 
+import org.apache.http.conn.ssl.NoopHostnameVerifier;
+import org.apache.http.conn.ssl.TrustSelfSignedStrategy;
+import org.apache.http.ssl.SSLContextBuilder;
+import org.apache.http.impl.client.HttpClients;
+import javax.net.ssl.SSLContext;
+
 @Slf4j
 @RestController
 @RequestMapping("/api/Login/")
@@ -529,6 +535,12 @@ public class ApiLogin {
 				b.addParameter(key, value);
 			}
 			URI uri = b.build();
+			
+			// 신뢰할 수 없는 인증서 허용
+	        SSLContext sslContext = SSLContextBuilder
+	            .create()
+	            .loadTrustMaterial(new TrustSelfSignedStrategy())
+	            .build();
 		
 		    CloseableHttpClient httpClient = HttpClientBuilder.create().build();
 		    
@@ -548,6 +560,7 @@ public class ApiLogin {
 		    HttpEntity entity = response.getEntity();
 		    retVal = EntityUtils.toString(entity);
 		} catch(Exception e) {
+			System.out.println("Rest API call error !!!");
 			System.out.println(e.toString());
 		}
 		
